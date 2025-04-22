@@ -1,0 +1,37 @@
+Install the following dependacnies before running
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install -y python3-pip python3-opencv
+sudo pip3 install mediapipe opencv-python RPi.GPIO pigpio
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
+-------Hardware Connection--------
+
+Connect your USB webcam to one of the USB ports on the Raspberry Pi 4
+Connect the SG90 servo to the Raspberry Pi GPIO pins:
+
+Red wire (power) → 5V pin
+Brown/Black wire (ground) → GND pin
+Yellow/Orange wire (signal) → GPIO pin 18 (you can choose another GPIO pin if needed)
+
+
+----This system works by:-----
+
+Capturing video frames from your USB webcam
+Processing each frame with MediaPipe's pose detection to identify people
+Tracking the position of the person's nose relative to the center of the frame
+Calculating how much to rotate the servo to keep the person centered
+Applying smooth movement to the servo to avoid jerky motion
+Displaying the processed video with tracking information
+
+The script provides visual feedback by showing:
+
+The detected pose landmarks
+A vertical line indicating the center
+The tracking position of the person
+Status text indicating whether a person is detected
+
+
+
