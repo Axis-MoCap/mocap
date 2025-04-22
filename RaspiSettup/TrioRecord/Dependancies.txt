@@ -1,0 +1,34 @@
+🎥 MoCap System – Raspberry Pi Setup Guide
+This guide explains how to install everything you need to run the MoCap (motion capture) system on a Raspberry Pi.
+
+✅ Step 1: Check Python
+Python is already included in Raspberry Pi OS. Just make sure it's version 3.7 or newer.
+
+To check, run:   [ python3 --version]
+
+✅ Step 2: Install pip (Python package manager)
+Run these commands: [ sudo apt update , sudo apt install python3-pip ]
+
+✅ Step 3: Install the required Python libraries
+These are the main libraries your MoCap system needs: [pip install numpy opencv-python mediapipe]
+
+✅ Step 4: Install PyTorch (Torch)
+Torch is used to do the skeleton math (IK).
+install it like this: [ pip install torch --extra-index-url https://www.piwheels.org/simple]
+
+✅ Step 5: tqdm for progress bars
+This is  useful for showing loading bars. : [pip install tqdm]
+
+📦 What Each Library Does
+numpy – math and number handling
+
+opencv-python – captures video from the camera
+
+mediapipe – tracks the body and finds joint positions
+
+torch – handles the skeleton logic (inverse kinematics)
+
+tqdm – shows progress bars (optional)
+
+
+
